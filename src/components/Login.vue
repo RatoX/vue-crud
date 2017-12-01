@@ -1,5 +1,6 @@
 <template>
-  <section class="login">
+  <form class="login" @submit.prevent="authenticate">
+    <notifications group="login" position="bottom right"/>
     <section class="login__email">
       <label for="email">Email</label>
       <input type="email">
@@ -8,12 +9,11 @@
       <label for="password">Password</label>
       <input type="password">
     </section>
-    <button
-      class="login__button"
-      @click="authenticate">
-      Login
-    </button>
-  </section>
+    <input type="submit"
+      class="login__submit"
+      value="Login"
+      />
+  </form>
 </template>
 
 <script>
@@ -34,11 +34,15 @@ export default {
       this
         .$store
         .dispatch('USER_AUTHENTICATION', { username, password })
-        .then((result) => {
-          console.log(result);
+        .then(() => {
+          this.$router.push('/news');
         })
-        .catch((error) => {
-          console.error(error);
+        .catch(() => {
+          this.$notify({
+            group: 'login',
+            title: 'User invalid!',
+            type: 'error',
+          });
         });
     },
   },
@@ -70,7 +74,7 @@ export default {
   margin-top: 30px;
 }
 
-.login__button {
+.login__submit {
   margin-top: 20px;
   padding: 10px;
   border-radius: 0;

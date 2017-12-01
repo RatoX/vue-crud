@@ -18,7 +18,7 @@ export default new Vuex.Store({
   actions: {
     USER_AUTHENTICATION(state, { username, password }) {
       return new Promise((resolve, reject) => {
-        if (username !== 'rato' && password !== '123') {
+        if (username === 'rato@test' && password === '123') {
           resolve();
         } else {
           reject();
