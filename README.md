@@ -1,6 +1,4 @@
-# vue-crud-sample
-
-> A Vue.js project
+> A Simple Vue CRUD example for future implementations
 
 ## Build Setup
 
@@ -23,5 +21,3 @@ npm run unit
 # run all tests
 npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
