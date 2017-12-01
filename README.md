@@ -1,4 +1,4 @@
-> A Simple Vue CRUD example for future implementations
+A Simple CRUD system with token authentication
 
 ## Build Setup
 
