@@ -15,23 +15,24 @@ describe('Login.vue', () => {
     const wrapper = mount(Login);
     const emailElement = wrapper.find('.login__email');
 
-    expect(emailElement).toHaveLength(1)
+    expect(emailElement).toHaveLength(1);
   });
 
   it('should render password', () => {
     const wrapper = mount(Login);
     const passwordElement = wrapper.find('.login__password');
 
-    expect(passwordElement).toHaveLength(1)
+    expect(passwordElement).toHaveLength(1);
   });
 
   describe('Authentication action', () => {
-    let wrapper, authenticationActionStub;
+    let wrapper;
+    let authenticationActionStub;
 
     beforeEach(() => {
       authenticationActionStub = sinon.stub();
 
-      const router = new VueRouter;
+      const router = new VueRouter();
       const store = new Vuex.Store({
         actions: {
           USER_AUTHENTICATION: authenticationActionStub,
@@ -45,10 +46,10 @@ describe('Login.vue', () => {
     });
 
     it('should call the authentication action with the username and the password after submit', () => {
-       wrapper.setData({ username: 'opa', password: '12' });
-       wrapper.first('.login__submit').trigger('click');
+      wrapper.setData({ username: 'opa', password: '12' });
+      wrapper.first('.login__submit').trigger('click');
 
-       expect(authenticationActionStub.called).toBeTruthy();
+      expect(authenticationActionStub.called).toBeTruthy();
     });
 
     it('should redirect to news page with the authentication was ok', (done) => {
