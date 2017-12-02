@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/RatoX/vue-crud.svg?branch=master)](https://travis-ci.org/RatoX/vue-crud)
+
 A Simple CRUD system with token authentication
 
 ## Build Setup
