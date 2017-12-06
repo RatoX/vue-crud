@@ -3,11 +3,11 @@
     <notifications group="login" position="bottom right"/>
     <section class="login__email">
       <label for="email">Email</label>
-      <input type="email">
+      <input type="email" v-model="username">
     </section>
     <section class="login__password">
       <label for="password">Password</label>
-      <input type="password">
+      <input type="password" v-model="password">
     </section>
     <input type="submit"
       class="login__submit"

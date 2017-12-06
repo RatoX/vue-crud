@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/components/Login';
+import NewsList from '@/views/NewsList';
+import NewsEdit from '@/views/NewsEdit';
 
 Vue.use(Router);
 
@@ -10,6 +12,17 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/news',
+      name: 'News',
+      component: NewsList,
+      children: [{
+        path: '/news/:id',
+        name: 'newsEdit',
+        component: NewsEdit,
+        props: true,
+      }],
     },
   ],
 });

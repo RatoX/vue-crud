@@ -7,12 +7,27 @@ export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
 
   state: {
+    news: [
+      {
+        id: 1,
+        label: 'Items',
+      },
+      {
+        id: 3,
+        label: 'Car',
+      },
+      {
+        id: 2,
+        label: 'Spider',
+      },
+    ],
   },
 
   mutations: {
   },
 
   getters: {
+    news: state => state.news,
   },
 
   actions: {
