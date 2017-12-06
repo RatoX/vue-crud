@@ -1,6 +1,8 @@
 <template>
   <section class="news-list">
-    <ul class="news-list__list">
+    <ul
+      :class="listClasses"
+     >
       <li
         class="news-list__item"
         v-for="( item, index ) in items"
@@ -10,7 +12,9 @@
         {{ item.label }}
       </li>
     </ul>
-    <section class="news-list__edit-section">
+    <section
+      :class="editSectionClasses"
+    >
       <transition>
         <router-view>
         </router-view>
@@ -33,6 +37,24 @@ export default {
     items() {
       return this.$store.getters.news;
     },
+
+    isEditing() {
+      return this.$route.name === 'NewsEdit';
+    },
+
+    editSectionClasses() {
+      return {
+        'news-list__edit-section': true,
+        'news-list__edit-section_edit-mode': this.isEditing,
+      };
+    },
+
+    listClasses() {
+      return {
+        'news-list__list': true,
+        'news-list__list_edit-mode': this.isEditing,
+      };
+    },
   },
 };
 </script>
@@ -41,7 +63,7 @@ export default {
 
 .news-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-size: 15px;
   min-width: 320px;
@@ -54,6 +76,7 @@ export default {
   width: 100%;
   max-width: 300px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  flex: 1 0 100%;
 }
 
 .news-list__item {
@@ -69,6 +92,18 @@ export default {
 
 .news-list__edit-section {
   margin-left: 20px;
+}
+
+.news-list__edit-section,
+.news-list__list {
+  transition: flex-basis .8s ease-in-out;
+}
+
+.news-list__list_edit-mode {
+  flex: 0 1 20%;
+}
+
+.news-list__edit-section_edit-mode {
   flex: 1 0 80%;
 }
 

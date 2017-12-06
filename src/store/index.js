@@ -28,6 +28,11 @@ export default new Vuex.Store({
 
   getters: {
     news: state => state.news,
+    newsById(state) {
+      return (id) => {
+        return state.news.find(x => x.id === id);
+      };
+    },
   },
 
   actions: {

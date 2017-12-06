@@ -19,7 +19,7 @@ export default new Router({
       component: NewsList,
       children: [{
         path: '/news/:id',
-        name: 'newsEdit',
+        name: 'NewsEdit',
         component: NewsEdit,
         props: true,
       }],
